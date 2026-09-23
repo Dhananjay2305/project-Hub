@@ -23,13 +23,19 @@ export const Hero: React.FC = () => {
     setTimeout(() => setCopiedLinkedin(false), 2000);
   };
   return (
-    <section className="min-h-screen flex items-center pt-20 pb-12 overflow-hidden">
-      <div className="container mx-auto px-6 md:px-12 flex flex-col md:flex-row items-center justify-between">
-        
-        <div className="w-full md:w-1/2 z-10">
+    <section className="min-h-screen flex flex-col md:flex-row overflow-hidden bg-gray-50 dark:bg-gray-900">
+      {/* Left Side - Full Background Image */}
+      <div className="w-full md:w-1/2 h-[50vh] md:h-screen relative z-0">
+        <img src="/hero-bg.jpg" alt="Hegde Dhananjay" className="w-full h-full object-cover object-center" />
+        {/* Overlay for mobile readability if needed, but since it's a split screen, image is separate */}
+      </div>
+      
+      {/* Right Side - Content */}
+      <div className="w-full md:w-1/2 flex items-center relative z-10">
+        <div className="px-8 md:px-16 py-12 md:py-24 w-full">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
           >
             <p className="text-primary-600 dark:text-primary-400 font-medium tracking-wider mb-2">HELLO, WORLD!</p>
@@ -77,26 +83,6 @@ export const Hero: React.FC = () => {
             </div>
           </motion.div>
         </div>
-        
-        <div className="w-full md:w-1/2 mt-12 md:mt-0 relative">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="relative z-10 flex justify-center"
-          >
-            <div className="relative w-72 h-72 md:w-96 md:h-96">
-              <div className="absolute inset-0 bg-gradient-to-tr from-primary-500 to-blue-300 rounded-full blur-3xl opacity-20 dark:opacity-30 animate-pulse" />
-              <div className="absolute inset-4 bg-gradient-to-bl from-primary-600 to-cyan-400 rounded-full blur-2xl opacity-40 dark:opacity-20" />
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-full h-full overflow-hidden relative rounded-full">
-                  <img src="/hero-bg.jpg" alt="Hegde Dhananjay" className="w-full h-full object-cover object-center" />
-                </div>
-              </div>
-            </div>
-          </motion.div>
-        </div>
-        
       </div>
     </section>
   );
