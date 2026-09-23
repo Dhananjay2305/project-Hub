@@ -89,7 +89,7 @@ export const Hero: React.FC = () => {
               <div className="absolute inset-0 bg-gradient-to-tr from-primary-500 to-blue-300 rounded-full blur-3xl opacity-20 dark:opacity-30 animate-pulse" />
               <div className="absolute inset-4 bg-gradient-to-bl from-primary-600 to-cyan-400 rounded-full blur-2xl opacity-40 dark:opacity-20" />
               <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-full h-full rounded-2xl shadow-2xl overflow-hidden border border-gray-100 dark:border-gray-700 rotate-3 transform transition-transform hover:rotate-0 duration-500 relative">
+                <div className="w-full h-full overflow-hidden relative rounded-full">
                   <img src="/hero-bg.jpg" alt="Hegde Dhananjay" className="w-full h-full object-cover object-center" />
                 </div>
               </div>
