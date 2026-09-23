@@ -23,8 +23,19 @@ export const Hero: React.FC = () => {
     setTimeout(() => setCopiedLinkedin(false), 2000);
   };
   return (
-    <section className="min-h-screen flex items-center pt-20 pb-12 overflow-hidden">
-      <div className="container mx-auto px-6 md:px-12 flex flex-col md:flex-row items-center justify-between">
+    <section 
+      className="min-h-screen flex items-center pt-20 pb-12 overflow-hidden relative"
+      style={{
+        backgroundImage: "url('/hero-bg.jpg')",
+        backgroundSize: 'cover',
+        backgroundPosition: 'center center',
+        backgroundRepeat: 'no-repeat'
+      }}
+    >
+      {/* Optional overlay to ensure text readability */}
+      <div className="absolute inset-0 bg-white/60 dark:bg-gray-900/80 z-0"></div>
+      
+      <div className="container mx-auto px-6 md:px-12 flex flex-col md:flex-row items-center justify-between relative z-10">
         
         <div className="w-full md:w-1/2 z-10">
           <motion.div
