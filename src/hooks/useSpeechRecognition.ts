@@ -40,7 +40,7 @@ export const useSpeechRecognition = ({ onResult }: UseSpeechOptions = {}) => {
           }
         }
 
-        setTranscript((prev) => {
+        setTranscript(() => {
            // If continuous, we might want to just use the latest or accumulate
            return currentTranscript; 
         });
