@@ -65,7 +65,7 @@ export const VoiceProjectAssistant: React.FC = () => {
       } else if (error === 'no-speech') {
         setMessage('No speech was detected. Please try again.');
       } else {
-        setMessage('An error occurred. Please try again.');
+        setMessage(`An error occurred: ${error}. Please try again.`);
       }
       setTimeout(() => {
         if (isOpen) setAssistantState('IDLE');
