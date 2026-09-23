@@ -10,8 +10,8 @@ type AssistantState = 'IDLE' | 'LISTENING' | 'PROCESSING' | 'SUCCESS' | 'ERROR';
 export const VoiceProjectAssistant: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [assistantState, setAssistantState] = useState<AssistantState>('IDLE');
-  const [message, setMessage] = useState('Click to speak');
-  const [isWakeWordMode, setIsWakeWordMode] = useState(false);
+  const [message, setMessage] = useState('Say "Dhanu" anytime...');
+  const [isWakeWordMode, setIsWakeWordMode] = useState(true);
   const processedRef = useRef(false);
 
   const handleResult = (currentTranscript: string, isFinal: boolean) => {
@@ -23,10 +23,13 @@ export const VoiceProjectAssistant: React.FC = () => {
       setAssistantState('LISTENING');
       setMessage('Yes? I am listening...');
       speak("Yes?");
-      processedRef.current = false;
+      processedRef.current = true; // Mark as processed so it doesn't trigger as a command
       // Start a fresh listening session for the actual command
       stopListening(); 
-      setTimeout(() => startListening(), 500);
+      setTimeout(() => {
+        processedRef.current = false; // Reset for the actual command
+        startListening();
+      }, 500);
       return;
     }
 
@@ -84,7 +87,7 @@ export const VoiceProjectAssistant: React.FC = () => {
         processCommand(transcript);
       } else if (transcript.trim().length === 0) {
         setAssistantState('IDLE');
-        setMessage('Click to speak');
+        setMessage(isWakeWordMode ? 'Say "Dhanu" anytime...' : 'Click to speak');
       }
     }
   }, [isListening, assistantState, transcript]);
@@ -114,7 +117,7 @@ export const VoiceProjectAssistant: React.FC = () => {
       if (!isWakeWordMode && isSupported) {
         stopListening();
         setAssistantState('IDLE');
-        setMessage('Click to speak');
+        setMessage(isWakeWordMode ? 'Say "Dhanu" anytime...' : 'Click to speak');
       }
     }
   };
@@ -129,7 +132,7 @@ export const VoiceProjectAssistant: React.FC = () => {
       setTimeout(() => {
         if (isOpen) {
           setAssistantState('IDLE');
-          setMessage('Click to speak');
+          setMessage(isWakeWordMode ? 'Say "Dhanu" anytime...' : 'Click to speak');
         }
       }, 4000);
       return;
@@ -186,7 +189,7 @@ export const VoiceProjectAssistant: React.FC = () => {
       // Close the assistant automatically after success
       setTimeout(() => {
         setAssistantState('IDLE');
-        setMessage('Click to speak');
+        setMessage(isWakeWordMode ? 'Say "Dhanu" anytime...' : 'Click to speak');
         setIsOpen(false);
       }, 3000);
 
@@ -197,7 +200,7 @@ export const VoiceProjectAssistant: React.FC = () => {
       setTimeout(() => {
         if (isOpen) {
           setAssistantState('IDLE');
-          setMessage('Click to speak');
+          setMessage(isWakeWordMode ? 'Say "Dhanu" anytime...' : 'Click to speak');
         }
       }, 4000);
     }

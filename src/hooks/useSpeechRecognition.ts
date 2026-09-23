@@ -13,6 +13,12 @@ export const useSpeechRecognition = ({ onResult }: UseSpeechOptions = {}) => {
   const [error, setError] = useState<string | null>(null);
   const recognitionRef = useRef<any>(null);
 
+  const onResultRef = useRef(onResult);
+  
+  useEffect(() => {
+    onResultRef.current = onResult;
+  }, [onResult]);
+
   useEffect(() => {
     // Check for browser support
     const SpeechRecognition = (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition;
@@ -45,8 +51,8 @@ export const useSpeechRecognition = ({ onResult }: UseSpeechOptions = {}) => {
            return currentTranscript; 
         });
         
-        if (onResult) {
-          onResult(currentTranscript, isFinal);
+        if (onResultRef.current) {
+          onResultRef.current(currentTranscript, isFinal);
         }
       };
 
@@ -68,7 +74,7 @@ export const useSpeechRecognition = ({ onResult }: UseSpeechOptions = {}) => {
     } else {
       setIsSupported(false);
     }
-  }, [onResult]);
+  }, []);
 
   const setAutoRestart = useCallback((value: boolean) => {
     if (recognitionRef.current) {

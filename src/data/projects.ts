@@ -87,7 +87,7 @@ export const projectsData: Project[] = [
     id: "7",
         name: "Portfolio",
     url: "https://github.com/Dhananjay2305/Portfolio",
-    deploymentUrl: "https://dhananjayprofile.vercel.app/",
+    deploymentUrl: "https://dhananjay-portfolio-in1g.vercel.app/",
     technology: "Web Development",
     category: "Web Development",
     description: "Personal portfolio website project showcasing web development skills and projects.",
