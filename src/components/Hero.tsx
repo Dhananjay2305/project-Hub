@@ -82,6 +82,10 @@ export const Hero: React.FC = () => {
       {/* Right Side - Full Background Image */}
       <div className="w-full md:w-1/2 h-[50vh] md:h-screen relative z-0 order-first md:order-last">
         <img src="/hero-bg.jpg" alt="Hegde Dhananjay" className="w-full h-full object-cover object-center" />
+        {/* Desktop Gradient Overlay - blends the left edge */}
+        <div className="absolute inset-0 bg-gradient-to-r from-gray-50 via-gray-50/50 to-transparent dark:from-gray-900 dark:via-gray-900/50 dark:to-transparent hidden md:block" />
+        {/* Mobile Gradient Overlay - blends the bottom edge */}
+        <div className="absolute inset-0 bg-gradient-to-t from-gray-50 via-gray-50/50 to-transparent dark:from-gray-900 dark:via-gray-900/50 dark:to-transparent md:hidden" />
       </div>
     </section>
   );
