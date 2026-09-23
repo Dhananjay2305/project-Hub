@@ -10,7 +10,7 @@ type AssistantState = 'IDLE' | 'LISTENING' | 'PROCESSING' | 'SUCCESS' | 'ERROR';
 export const VoiceProjectAssistant: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [assistantState, setAssistantState] = useState<AssistantState>('IDLE');
-  const [message, setMessage] = useState('Say "Dhanu" anytime...');
+  const [message, setMessage] = useState('Say "Bro" anytime...');
   const [isWakeWordMode, setIsWakeWordMode] = useState(true);
   const processedRef = useRef(false);
 
@@ -18,7 +18,7 @@ export const VoiceProjectAssistant: React.FC = () => {
     const lower = currentTranscript.toLowerCase();
 
     // Check for wake word
-    if (isWakeWordMode && assistantState === 'IDLE' && (lower.includes('dhanu') || lower.includes('danu') || lower.includes('dhananjay'))) {
+    if (isWakeWordMode && assistantState === 'IDLE' && (lower.includes('bro') || lower.includes('hey bro') || lower.includes('hello bro'))) {
       setIsOpen(true);
       setAssistantState('LISTENING');
       setMessage('Yes? I am listening...');
@@ -87,7 +87,7 @@ export const VoiceProjectAssistant: React.FC = () => {
         processCommand(transcript);
       } else if (transcript.trim().length === 0) {
         setAssistantState('IDLE');
-        setMessage(isWakeWordMode ? 'Say "Dhanu" anytime...' : 'Click to speak');
+        setMessage(isWakeWordMode ? 'Say "Bro" anytime...' : 'Click to speak');
       }
     }
   }, [isListening, assistantState, transcript]);
@@ -117,7 +117,7 @@ export const VoiceProjectAssistant: React.FC = () => {
       if (!isWakeWordMode && isSupported) {
         stopListening();
         setAssistantState('IDLE');
-        setMessage(isWakeWordMode ? 'Say "Dhanu" anytime...' : 'Click to speak');
+        setMessage(isWakeWordMode ? 'Say "Bro" anytime...' : 'Click to speak');
       }
     }
   };
@@ -132,7 +132,7 @@ export const VoiceProjectAssistant: React.FC = () => {
       setTimeout(() => {
         if (isOpen) {
           setAssistantState('IDLE');
-          setMessage(isWakeWordMode ? 'Say "Dhanu" anytime...' : 'Click to speak');
+          setMessage(isWakeWordMode ? 'Say "Bro" anytime...' : 'Click to speak');
         }
       }, 4000);
       return;
@@ -189,7 +189,7 @@ export const VoiceProjectAssistant: React.FC = () => {
       // Close the assistant automatically after success
       setTimeout(() => {
         setAssistantState('IDLE');
-        setMessage(isWakeWordMode ? 'Say "Dhanu" anytime...' : 'Click to speak');
+        setMessage(isWakeWordMode ? 'Say "Bro" anytime...' : 'Click to speak');
         setIsOpen(false);
       }, 3000);
 
@@ -200,7 +200,7 @@ export const VoiceProjectAssistant: React.FC = () => {
       setTimeout(() => {
         if (isOpen) {
           setAssistantState('IDLE');
-          setMessage(isWakeWordMode ? 'Say "Dhanu" anytime...' : 'Click to speak');
+          setMessage(isWakeWordMode ? 'Say "Bro" anytime...' : 'Click to speak');
         }
       }, 4000);
     }
@@ -325,14 +325,14 @@ export const VoiceProjectAssistant: React.FC = () => {
                     <span className="text-sm font-medium text-gray-700 dark:text-gray-300 flex items-center">
                       <span className="mr-2">🎙️</span> Wake Word Mode
                     </span>
-                    <span className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">Say "Dhanu" to activate</span>
+                    <span className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">Say "Bro" to activate</span>
                   </div>
                   <button 
                     onClick={() => {
                       setIsWakeWordMode(!isWakeWordMode);
                       if (!isWakeWordMode) {
                         setAssistantState('IDLE');
-                        setMessage('Say "Dhanu" anytime...');
+                        setMessage('Say "Bro" anytime...');
                         startListening();
                       } else {
                         stopListening();
