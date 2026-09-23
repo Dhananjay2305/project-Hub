@@ -23,19 +23,8 @@ export const Hero: React.FC = () => {
     setTimeout(() => setCopiedLinkedin(false), 2000);
   };
   return (
-    <section 
-      className="min-h-screen flex items-center pt-20 pb-12 overflow-hidden relative"
-      style={{
-        backgroundImage: "url('/hero-bg.jpg')",
-        backgroundSize: 'cover',
-        backgroundPosition: 'center center',
-        backgroundRepeat: 'no-repeat'
-      }}
-    >
-      {/* Optional overlay to ensure text readability */}
-      <div className="absolute inset-0 bg-white/60 dark:bg-gray-900/80 z-0"></div>
-      
-      <div className="container mx-auto px-6 md:px-12 flex flex-col md:flex-row items-center justify-between relative z-10">
+    <section className="min-h-screen flex items-center pt-20 pb-12 overflow-hidden">
+      <div className="container mx-auto px-6 md:px-12 flex flex-col md:flex-row items-center justify-between">
         
         <div className="w-full md:w-1/2 z-10">
           <motion.div
@@ -100,23 +89,8 @@ export const Hero: React.FC = () => {
               <div className="absolute inset-0 bg-gradient-to-tr from-primary-500 to-blue-300 rounded-full blur-3xl opacity-20 dark:opacity-30 animate-pulse" />
               <div className="absolute inset-4 bg-gradient-to-bl from-primary-600 to-cyan-400 rounded-full blur-2xl opacity-40 dark:opacity-20" />
               <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-64 h-64 md:w-80 md:h-80 bg-white dark:bg-gray-800 rounded-2xl shadow-2xl overflow-hidden border border-gray-100 dark:border-gray-700 rotate-3 transform transition-transform hover:rotate-0 duration-500 flex items-center justify-center relative glass">
-                  <div className="absolute top-0 left-0 w-full h-8 bg-gray-100 dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700 flex items-center px-4 space-x-2">
-                    <div className="w-3 h-3 rounded-full bg-red-400" />
-                    <div className="w-3 h-3 rounded-full bg-yellow-400" />
-                    <div className="w-3 h-3 rounded-full bg-green-400" />
-                  </div>
-                  <div className="p-8 font-mono text-sm md:text-base text-gray-600 dark:text-gray-300 mt-8 w-full">
-                    <p className="text-pink-500 dark:text-pink-400">const <span className="text-blue-500 dark:text-blue-400">developer</span> = {'{'}</p>
-                    <p className="pl-4">name: <span className="text-green-500 dark:text-green-400">'Dhananjay'</span>,</p>
-                    <p className="pl-4">skills: [<span className="text-green-500 dark:text-green-400">'React'</span>, <span className="text-green-500 dark:text-green-400">'AI'</span>, <span className="text-green-500 dark:text-green-400">'IoT'</span>],</p>
-                    <p className="pl-4">hardWorker: <span className="text-orange-500 dark:text-orange-400">true</span>,</p>
-                    <p className="pl-4">problemSolver: <span className="text-orange-500 dark:text-orange-400">true</span>,</p>
-                    <p className="text-pink-500 dark:text-pink-400">{'}'};</p>
-                    <br />
-                    <p className="text-gray-400 dark:text-gray-500">// Building the future...</p>
-                    <p className="text-blue-500 dark:text-blue-400">developer<span className="text-gray-600 dark:text-gray-300">.</span>code<span className="text-gray-600 dark:text-gray-300">();</span></p>
-                  </div>
+                <div className="w-64 h-64 md:w-80 md:h-80 rounded-2xl shadow-2xl overflow-hidden border border-gray-100 dark:border-gray-700 rotate-3 transform transition-transform hover:rotate-0 duration-500 flex items-center justify-center relative">
+                  <img src="/hero-bg.jpg" alt="Hegde Dhananjay" className="w-full h-full object-cover" />
                 </div>
               </div>
             </div>
