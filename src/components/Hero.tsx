@@ -24,17 +24,11 @@ export const Hero: React.FC = () => {
   };
   return (
     <section className="min-h-screen flex flex-col md:flex-row overflow-hidden bg-gray-50 dark:bg-gray-900">
-      {/* Left Side - Full Background Image */}
-      <div className="w-full md:w-1/2 h-[50vh] md:h-screen relative z-0">
-        <img src="/hero-bg.jpg" alt="Hegde Dhananjay" className="w-full h-full object-cover object-center" />
-        {/* Overlay for mobile readability if needed, but since it's a split screen, image is separate */}
-      </div>
-      
-      {/* Right Side - Content */}
+      {/* Left Side - Content */}
       <div className="w-full md:w-1/2 flex items-center relative z-10">
         <div className="px-8 md:px-16 py-12 md:py-24 w-full">
           <motion.div
-            initial={{ opacity: 0, x: 20 }}
+            initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
           >
@@ -83,6 +77,11 @@ export const Hero: React.FC = () => {
             </div>
           </motion.div>
         </div>
+      </div>
+      
+      {/* Right Side - Full Background Image */}
+      <div className="w-full md:w-1/2 h-[50vh] md:h-screen relative z-0 order-first md:order-last">
+        <img src="/hero-bg.jpg" alt="Hegde Dhananjay" className="w-full h-full object-cover object-center" />
       </div>
     </section>
   );
