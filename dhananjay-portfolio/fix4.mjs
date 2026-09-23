@@ -1,0 +1,3 @@
+import fs from 'fs';  
+const files = ['src/components/Contact.tsx', 'src/components/FeaturedProjects.tsx', 'src/components/GithubSection.tsx', 'src/components/Hero.tsx', 'src/components/Navbar.tsx', 'src/components/ProjectCard.tsx', 'src/components/ProjectModal.tsx'];  
+files.forEach(file => { let content = fs.readFileSync(file, 'utf8'); content = content.replace(/import\s*\{\s*FaGithub\s*as\s*,\s*FaLinkedin\s*as\s*\}\s*from\s*'react-icons\/fa';\r?\n/, ''); content = content.replace(/import\s*\{\s*FaGithub\s*as\s*Github,\s*FaLinkedin\s*as\s*Linkedin\s*\}\s*from\s*'react-icons\/fa';\r?\n/, ''); content = 'import { FaGithub as Github, FaLinkedin as Linkedin } from \'react-icons/fa\';\n' + content; fs.writeFileSync(file, content); });  

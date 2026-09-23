@@ -1,0 +1,3 @@
+import fs from 'fs';  
+const files = ['src/components/Contact.tsx', 'src/components/FeaturedProjects.tsx', 'src/components/GithubSection.tsx', 'src/components/Hero.tsx', 'src/components/Navbar.tsx', 'src/components/ProjectCard.tsx', 'src/components/ProjectModal.tsx'];  
+files.forEach(file => { let content = fs.readFileSync(file, 'utf8'); content = content.replace(/,?\s*Github/g, '').replace(/,?\s*Linkedin/g, '').replace(/,?\s*ExternalLink/g, '').replace(/,?\s*Mail/g, '').replace(/,?\s*MapPin/g, ''); content = content.replace(/import\s*\{\s*\}\s*from\s*'lucide-react';\n?/g, ''); fs.writeFileSync(file, content); });  
